@@ -1,10 +1,7 @@
-# _____ _____ _____ __ __ _____ _____ 
-#|     |   __|     |  |  |     |     |
-#|  |  |__   |  |  |_   _|  |  |  |  |
-#|_____|_____|_____| |_| |_____|_____|
-#
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # Project Tutorial Url:http://osoyoo.com/?p=1031
-#  
+#
 import smbus
 import time
 
@@ -39,7 +36,7 @@ def lcd_init():
   lcd_byte(0x33,LCD_CMD) # 110011 Initialise
   lcd_byte(0x32,LCD_CMD) # 110010 Initialise
   lcd_byte(0x06,LCD_CMD) # 000110 Cursor move direction
-  lcd_byte(0x0C,LCD_CMD) # 001100 Display On,Cursor Off, Blink Off 
+  lcd_byte(0x0C,LCD_CMD) # 001100 Display On,Cursor Off, Blink Off
   lcd_byte(0x28,LCD_CMD) # 101000 Data length, number of lines, font size
   lcd_byte(0x01,LCD_CMD) # 000001 Clear display
   time.sleep(E_DELAY)
@@ -92,7 +89,7 @@ def main():
     lcd_string("Osoyoo.com        <",LCD_LINE_2)
 
     time.sleep(3)
-  
+
     # Send some more text
     lcd_string("> Tutorial Url:",LCD_LINE_1)
     lcd_string("> http://osoyoo.com",LCD_LINE_2)
@@ -107,4 +104,3 @@ if __name__ == '__main__':
     pass
   finally:
     lcd_byte(0x01, LCD_CMD)
-
