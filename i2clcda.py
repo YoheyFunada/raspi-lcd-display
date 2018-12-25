@@ -27,6 +27,9 @@ ENABLE = 0b00000100 # Enable bit
 E_PULSE = 0.0005
 E_DELAY = 0.0005
 
+#counter
+counter = 0
+
 #Open I2C interface
 #bus = smbus.SMBus(0)  # Rev 1 Pi uses 0
 bus = smbus.SMBus(1) # Rev 2 Pi uses 1
@@ -83,9 +86,10 @@ def main():
   lcd_init()
 
   while True:
+    counter+=1
 
     # Send some test
-    lcd_string("Hello World         <",LCD_LINE_1)
+    lcd_string("Count : "+str(counter)+"  <",LCD_LINE_1)
     lcd_string("日本語？？       <",LCD_LINE_2)
 
     time.sleep(3)
