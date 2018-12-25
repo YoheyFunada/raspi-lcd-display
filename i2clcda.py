@@ -100,20 +100,22 @@ def main():
     print gpu[1]
 
     # CPU温度、CPU周波数
-    lcd_string("Temp : "+temp[1]+"  <",LCD_LINE_1)
+    lcd_string("Temp  : "+temp[1]+"  <",LCD_LINE_1)
     lcd_string("Clock : "+clock[1]+"  <",LCD_LINE_2)
 
     time.sleep(3)
 
     # CPU温度、CPU周波数
     lcd_string("Volt  : "+volt[1]+"  <",LCD_LINE_1)
-    lcd_string("Arm : "+arm[1]+"  <",LCD_LINE_2)
+    lcd_string("Arm   : "+arm[1]+"  <",LCD_LINE_2)
 
     time.sleep(3)
 
     # CPU温度、CPU周波数
-    lcd_string("Gpu  : "+gpu[1]+"  <",LCD_LINE_1)
+    lcd_string("Gpu   : "+gpu[1]+"  <",LCD_LINE_1)
     lcd_string("",LCD_LINE_2)
+
+    time.sleep(3)
 
 
 if __name__ == '__main__':
