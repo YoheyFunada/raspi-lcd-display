@@ -97,7 +97,6 @@ def main():
     arm=commands.getoutput("vcgencmd get_mem arm").split('=')
 
     gpu=commands.getoutput("vcgencmd get_mem gpu").split('=')
-    print gpu[1]
 
     # CPU温度、CPU周波数
     lcd_string("Temp  : "+temp[1]+"  <",LCD_LINE_1)
