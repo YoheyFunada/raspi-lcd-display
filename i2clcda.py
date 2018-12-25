@@ -90,7 +90,7 @@ def main():
     lcd_string("Count : "+str(counter)+"  <",LCD_LINE_1)
     lcd_string("Number of loops  <",LCD_LINE_2)
 
-    time.sleep(3)
+    time.sleep(1)
 
     # Send some more text
     # lcd_string("> Tutorial Url:",LCD_LINE_1)
