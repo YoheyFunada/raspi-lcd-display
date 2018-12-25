@@ -90,7 +90,7 @@ def main():
 
     # Send some test
     lcd_string("Count : "+str(counter)+"  <",LCD_LINE_1)
-    lcd_string("日本語？？       <",LCD_LINE_2)
+    lcd_string("Number of loops  <",LCD_LINE_2)
 
     time.sleep(3)
 
