@@ -4,6 +4,8 @@
 #
 import smbus
 import time
+import os
+import commands
 
 # Define some device parameters
 I2C_ADDR  = 0x27 # I2C device address, if any error, change this address to 0x3f
@@ -78,25 +80,41 @@ def lcd_string(message,line):
 
 def main():
   # Main program block
-  #counter
-  counter = 0
   # Initialise display
   lcd_init()
 
   while True:
-    counter+=1
+    #温度を取得するRPiコマンド
+    temp = commands.getoutput("vcgencmd measure_temp").split('=')
 
-    # Send some test
-    lcd_string("Count : "+str(counter)+"  <",LCD_LINE_1)
-    lcd_string("Number of loops  <",LCD_LINE_2)
+    #CPU周波数を取得
+    clock=commands.getoutput("vcgencmd measure_clock arm").split('=')
 
-    time.sleep(1)
+    #電圧を取得
+    volt=commands.getoutput("vcgencmd measure_volts").split('=')
 
-    # Send some more text
-    # lcd_string("> Tutorial Url:",LCD_LINE_1)
-    # lcd_string("> http://osoyoo.com",LCD_LINE_2)
-    #
-    # time.sleep(3)
+    #CPU(arm),GPUのメモリ使用量
+    arm=commands.getoutput("vcgencmd get_mem arm").split('=')
+
+    gpu=commands.getoutput("vcgencmd get_mem gpu").split('=')
+    print gpu[1]
+
+    # CPU温度、CPU周波数
+    lcd_string("Temp : "+temp[1]+"  <",LCD_LINE_1)
+    lcd_string("Clock : "+clock[1]+"  <",LCD_LINE_2)
+
+    time.sleep(3)
+
+    # CPU温度、CPU周波数
+    lcd_string("Volt  : "+volt[1]+"  <",LCD_LINE_1)
+    lcd_string("Arm : "+arm[1]+"  <",LCD_LINE_2)
+
+    time.sleep(3)
+
+    # CPU温度、CPU周波数
+    lcd_string("Gpu  : "+gpu[1]+"  <",LCD_LINE_1)
+    lcd_string("",LCD_LINE_2)
+
 
 if __name__ == '__main__':
 
