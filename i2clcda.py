@@ -93,10 +93,10 @@ def main():
     time.sleep(3)
 
     # Send some more text
-    lcd_string("> Tutorial Url:",LCD_LINE_1)
-    lcd_string("> http://osoyoo.com",LCD_LINE_2)
-
-    time.sleep(3)
+    # lcd_string("> Tutorial Url:",LCD_LINE_1)
+    # lcd_string("> http://osoyoo.com",LCD_LINE_2)
+    #
+    # time.sleep(3)
 
 if __name__ == '__main__':
 
